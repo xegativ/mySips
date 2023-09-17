@@ -1,11 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: Helvetica, Arial,sans-serif; */
+  font-family: 'DotGothic16', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #3d585e;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,56 +18,55 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
+  padding: 0;
   display: flex;
   place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  margin: 0;
+  padding: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.drinkBox {
+  background-color: rgb(211, 206, 113);
+  margin:10px;
+  box-shadow: inset 2px 2px rgb(255, 223, 186), 2px 2px 0px 0px #5e3800;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.dB-content {
+  padding: 10px;
+  color: black;
+  text-align: left;
+}
+
+.grid-row {
+  display:flex;
+}
+
+.dB-navbar {
+  box-shadow: inset 2px 2px rgb(255, 223, 186);
+  color: rgb(255, 255, 255);
+  background-color: rgb(186, 169, 63);
+
+  display:flex;
+  align-items: center;
+  gap:8px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.dB-navbar p {
+  text-align:left;
+  margin-right: auto;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+.dB-navbar div {
+  text-align: right;
 }
