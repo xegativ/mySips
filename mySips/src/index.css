@@ -70,3 +70,13 @@ h1 {
 .dB-navbar div {
   text-align: right;
 }
+
+.star-div {
+  display: flex;
+  justify-content: center;
+}
+
+.star {
+  margin:0;
+  padding:0;
+}
