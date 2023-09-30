@@ -16,15 +16,42 @@ function Drink(props) {
     setStarArr(updatedArr);
   };
 
+  // takes in props.number and decides how many zeroes in front
+  const tabNumber = (val: number) => {
+    var valOutput;
+
+    if (Math.abs(val) < 10) {
+      valOutput = "00" + val;
+    } else {
+      valOutput = "0" + val;
+    }
+
+    return valOutput;
+  };
+
   return (
-    <div className="drinkBox">
+    <div className="box drink-box">
       <div className="dB-navbar">
-        <p>00{props.number}</p>
+        <p>{tabNumber(props.number)}</p>
       </div>
 
       <div className="dB-content">
-        <h1>Drink name</h1>
-        <h2>Drink description</h2>
+        <input
+          type="text"
+          className="drink-name"
+          defaultValue="myDrink"
+        ></input>
+        <input
+          type="text"
+          className="drink-desc"
+          defaultValue="Drink Description"
+        ></input>
+        <input
+          type="text"
+          className="drink-addr"
+          defaultValue="Address"
+        ></input>
+
         <div className="star-div">
           {starArr
             .map((item, index) => {

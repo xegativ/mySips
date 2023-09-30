@@ -1,8 +1,12 @@
-function AddNew() {
+function AddNew(props) {
   return (
-    <div className="drinkBox">
-      <h1>Add new</h1>
-      <h2>Input</h2>
+    <div className="box">
+      <div className="dB-navbar">
+        <p>XXX</p>
+      </div>
+      <div className="dB-content" onClick={props.onClick}>
+        <h1>Add new</h1>
+      </div>
     </div>
   );
 }

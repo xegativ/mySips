@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600&display=swap');
 
 
 
 :root {
   /* font-family: Helvetica, Arial,sans-serif; */
-  font-family: 'DotGothic16', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
+
   line-height: 1.5;
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #3d585e;
+  background-color: #e2ebf1;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,15 +33,74 @@ h1 {
   padding: 0;
 }
 
-.drinkBox {
-  background-color: rgb(211, 206, 113);
-  margin:10px;
-  box-shadow: inset 2px 2px rgb(255, 223, 186), 2px 2px 0px 0px #5e3800;
+.drink-name {
+  font-size: 32px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  width: 200px;
+  border: none;
 }
+
+.drink-desc {
+  font-size: 20px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  width: 200px;
+  border: none;
+}
+
+.drink-addr {
+  font-size: 20px;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-weight: 600;
+  width: 200px;
+  border: none;
+}
+
+
+.title-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  margin:40px;
+  padding: 10px;
+
+  color:white;
+  background-color: rgb(63, 127, 186);;
+
+  border-radius: 8px;
+}
+
+.nav-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin:40px;
+  padding: 10px;
+
+  color:white;
+  background-color: rgb(63, 127, 186);;
+
+  border-radius: 8px;
+}
+
+.box {
+  background-color: rgb(255, 255, 255);
+  margin:10px;
+  color: rgb(13, 12, 36);
+
+}
+
+.drink-box {
+  /* DRINK BOX SIZE */
+  width:220px;
+}
+
 
 .dB-content {
   padding: 10px;
-  color: black;
   text-align: left;
 }
 
@@ -48,9 +109,8 @@ h1 {
 }
 
 .dB-navbar {
-  box-shadow: inset 2px 2px rgb(255, 223, 186);
   color: rgb(255, 255, 255);
-  background-color: rgb(186, 169, 63);
+  background-color: rgb(63, 127, 186);
 
   display:flex;
   align-items: center;
