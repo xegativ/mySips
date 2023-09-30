@@ -11,7 +11,8 @@
   font-weight: 400;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #e2ebf1;
+  background: rgb(255,137,79);
+  background: linear-gradient(90deg, rgba(255,137,79,1) 0%, rgba(255,188,120,1) 35%, rgba(255,162,0,1) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -37,24 +38,34 @@ h1 {
   font-size: 32px;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
+
   width: 200px;
   border: none;
+
+  background-color: rgba(255, 255, 255, 0);
+  /* background-color: orange; */
 }
 
 .drink-desc {
   font-size: 20px;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
+
   width: 200px;
   border: none;
+
+  background-color: rgba(255, 255, 255, 0);
 }
 
 .drink-addr {
   font-size: 20px;
   font-family: 'Bricolage Grotesque', sans-serif;
   font-weight: 600;
+
   width: 200px;
   border: none;
+
+  background-color: rgba(255, 255, 255, 0);
 }
 
 
@@ -66,10 +77,17 @@ h1 {
   margin:40px;
   padding: 10px;
 
-  color:white;
-  background-color: rgb(63, 127, 186);;
+  /* color:white;
+  background-color: rgb(255, 145, 0);; */
 
-  border-radius: 8px;
+  /* border-radius: 8px; */
+
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .nav-box {
@@ -80,16 +98,29 @@ h1 {
   margin:40px;
   padding: 10px;
 
-  color:white;
-  background-color: rgb(63, 127, 186);;
+  /* color:white;
+  background-color: rgb(219, 82, 2);;
 
-  border-radius: 8px;
+  border-radius: 8px; */
+
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .box {
-  background-color: rgb(255, 255, 255);
   margin:10px;
   color: rgb(13, 12, 36);
+
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 
 }
 
@@ -106,11 +137,15 @@ h1 {
 
 .grid-row {
   display:flex;
+  flex-wrap: wrap;
+  max-width: 80vw;
+  justify-content: center;
+  align-items: center;
 }
 
 .dB-navbar {
-  color: rgb(255, 255, 255);
-  background-color: rgb(63, 127, 186);
+  /* color: rgb(255, 255, 255);
+  background-color: rgb(255, 151, 92); */
 
   display:flex;
   align-items: center;
@@ -118,6 +153,13 @@ h1 {
 
   padding-left: 10px;
   padding-right: 10px;
+
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .dB-navbar p {
