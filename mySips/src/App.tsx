@@ -7,28 +7,62 @@ import NavBar from "./components/NavBar";
 import { useState } from "react";
 
 function App() {
-  const onClickAdd = () => {
-    const tmpArr = drinkArr.concat([
-      <Drink key={drinkArr.length} number={drinkArr.length}></Drink>,
-    ]);
+  // I'm sorry, I know this ruins the point of Typescript
+  // but I could not find a solution without refactoring a
+  // great chunk of my code :|, thus I used "any" below
+  const [drinkArr, setDrinkArr] = useState<React.ReactElement[]>([]);
+
+  const eventDelete = (ID: number) => {
+    console.log(ID);
+    console.log(typeof drinkArr);
+    // const tmpArr = drinkArr;
+
+    const tmpArr = drinkArr.filter((i: any) => i.id !== ID);
+    // console.log(tmpArr);
+
     setDrinkArr(tmpArr);
   };
 
-  const [drinkArr, setDrinkArr] = useState<JSX.Element[]>([]);
+  const onClickAdd = () => {
+    setDrinkArr([
+      ...drinkArr,
+      <Drink
+        key={drinkArr.length}
+        number={drinkArr.length}
+        onClick={() => eventDelete(drinkArr.length)}
+      ></Drink>,
+    ]);
+    console.log(drinkArr);
+  };
 
-  // const elements: JSX.Element[] = [];
-  // const elements: JSX.Element[] = [];
-  // const numberOfDrinks = 3;
-  // for (let i = 0; i < numberOfDrinks; i++) {
-  //   elements.push(<Drink key={i} number={i}></Drink>);
-  // }
+  // const onClickAdd = () => {
+  //   setDrinkArr([
+  //     ...drinkArr,
+  //     <button
+  //       key={drinkArr.length}
+  //       onClick={() => eventDelete(drinkArr.length)}
+  //     >
+  //       hi
+  //     </button>,
+  //   ]);
+  //   console.log(drinkArr);
+  // };
 
-  // const numberOfDrinks = 3;
-  // for (let i = 0; i < numberOfDrinks; i++) {
-  //   console.log(i);
-  //   const tmpArr = drinkArr.concat([<Drink key={i} number={i}></Drink>]);
+  // { id: 1, drink: drink, completed: false }
+
+  // const onClickAdd = () => {
+  //   const tmpArr = drinkArr.concat([
+  //     <Drink
+  //       key={drinkArr.length}
+  //       number={drinkArr.length}
+  //       onClick={() => eventDelete(drinkArr.length)}
+  //     ></Drink>,
+  //   ]);
+  //   console.log(drinkArr.length);
   //   setDrinkArr(tmpArr);
-  // }
+  // };
+
+  // <AddNew onClick={onClick}></AddNew>
 
   return (
     <div>
@@ -36,7 +70,7 @@ function App() {
       <NavBar></NavBar>
       <div className="grid-row">
         {drinkArr}
-        <AddNew onClick={onClickAdd}></AddNew>
+        <AddNew onClickAdd={onClickAdd}></AddNew>
       </div>
     </div>
   );

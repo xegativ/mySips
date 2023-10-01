@@ -1,11 +1,16 @@
-function AddNew(props) {
+// function AddNew({ onClick, onClickAdd2 }) {
+function AddNew({ onClickAdd }) {
+  const handleSubmit = () => {
+    onClickAdd();
+  };
+
   return (
     <div className="box">
-      <div className="dB-navbar">
+      {/* <div className="dB-navbar">
         <p>XXX</p>
-      </div>
-      <div className="dB-content" onClick={props.onClick}>
-        <h1>Add new</h1>
+      </div> */}
+      <div className="add-new" onClick={handleSubmit}>
+        <h1>+</h1>
       </div>
     </div>
   );
