@@ -283,3 +283,21 @@ h1 {
 }
 
 
+.tag-block {
+  display: flex;
+}
+
+.tag {
+  background-color: rgb(230, 255, 210);
+  border-radius: 10px;
+  display: flex;
+
+  font-size: 13px;
+
+  padding-left: 6px;
+  padding-right: 6px;
+
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-bottom: 10px;
+}

@@ -5,10 +5,17 @@ import trashSVG from "../assets/trash.svg";
 import uploadSVG from "../assets/upload-photo.svg";
 import shareSVG from "../assets/share.svg";
 
-function Drink({ number, onClick }) {
+function Drink({ number, eventDelete }) {
+  // console.log("Rendered drink #" + number);
   const [starArr, setStarArr] = useState([false, false, false, false, false]);
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [file, setFile] = useState<string | undefined>(undefined);
+
+  const [tags, setTags] = useState([
+    <div className="tag">Fruit</div>,
+    <div className="tag">Pearls</div>,
+    <div className="tag">+</div>,
+  ]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -92,7 +99,7 @@ function Drink({ number, onClick }) {
                 src={trashSVG}
                 alt="Delete"
                 className="icon"
-                onClick={onClick}
+                onClick={eventDelete}
               />
             </div>
           )}
@@ -100,6 +107,8 @@ function Drink({ number, onClick }) {
       </div>
 
       <div className="dB-content">
+        <div className="tag-block">{tags}</div>
+
         <input
           type="text"
           className="drink-name"

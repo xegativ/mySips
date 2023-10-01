@@ -10,18 +10,14 @@ function App() {
   // I'm sorry, I know this ruins the point of Typescript
   // but I could not find a solution without refactoring a
   // great chunk of my code :|, thus I used "any" below
-  const [drinkArr, setDrinkArr] = useState<React.ReactElement[]>([]);
+  const [drinkArr, setDrinkArr] = useState<any[]>([]);
 
   const eventDelete = (ID: number) => {
-    console.log(ID);
-    console.log(typeof drinkArr);
-    // const tmpArr = drinkArr;
-
-    const tmpArr = drinkArr.filter((i: any) => i.id !== ID);
-    // console.log(tmpArr);
-
-    setDrinkArr(tmpArr);
+    const removeArr = [...drinkArr].filter((drink: any) => drink.id !== ID);
+    setDrinkArr(removeArr);
   };
+
+  console.log("App rendered: drinkArr: " + drinkArr);
 
   const onClickAdd = () => {
     setDrinkArr([
@@ -29,23 +25,14 @@ function App() {
       <Drink
         key={drinkArr.length}
         number={drinkArr.length}
-        onClick={() => eventDelete(drinkArr.length)}
+        eventDelete={() => eventDelete(drinkArr.length)}
       ></Drink>,
     ]);
     console.log(drinkArr);
   };
 
   // const onClickAdd = () => {
-  //   setDrinkArr([
-  //     ...drinkArr,
-  //     <button
-  //       key={drinkArr.length}
-  //       onClick={() => eventDelete(drinkArr.length)}
-  //     >
-  //       hi
-  //     </button>,
-  //   ]);
-  //   console.log(drinkArr);
+  //   setDrinkArr([...drinkArr, <h1 key={drinkArr.length}>hi</h1>]);
   // };
 
   // { id: 1, drink: drink, completed: false }
