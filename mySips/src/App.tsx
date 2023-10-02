@@ -5,58 +5,88 @@ import Title from "./components/Title";
 import NavBar from "./components/NavBar";
 
 import { useState } from "react";
+import uuid from "react-uuid";
 
 function App() {
-  // I'm sorry, I know this ruins the point of Typescript
-  // but I could not find a solution without refactoring a
-  // great chunk of my code :|, thus I used "any" below
-  const [drinkArr, setDrinkArr] = useState<any[]>([]);
+  // define data
+  // put data when displaying Drink
+  // when delete, delete from numArr index
+  // -> also delete from dataArr
 
-  const eventDelete = (ID: number) => {
-    const removeArr = [...drinkArr].filter((drink: any) => drink.id !== ID);
-    setDrinkArr(removeArr);
+  const [dataArr, setDataArr] = useState<any>([]);
+  //   {
+  //     name: "myDrink1",
+  //     address: "Drink address",
+  //     description: "Drink description",
+  //   },
+  //   {
+  //     name: "myDrink2",
+  //     address: "Drink address",
+  //     description: "Drink description",
+  //   },
+  // ]);
+
+  const eventDelete = (drinkID) => {
+    console.log("Delete called on ID " + drinkID);
+    console.log("dataArr.length: " + dataArr.length);
+    // const removeNumArr = [...numArr].filter((_, index) => index !== ID);
+    let removeDataArr = [...dataArr].filter(
+      (item, index) => item.ID !== drinkID
+    );
+
+    // for (let i = 0; i < removeDataArr.length; i++) {
+    //   removeDataArr[i].number = i;
+    // }
+
+    // setNumArr(removeNumArr);
+    setDataArr(removeDataArr);
+    console.log(dataArr);
   };
-
-  console.log("App rendered: drinkArr: " + drinkArr);
 
   const onClickAdd = () => {
-    setDrinkArr([
-      ...drinkArr,
-      <Drink
-        key={drinkArr.length}
-        number={drinkArr.length}
-        eventDelete={() => eventDelete(drinkArr.length)}
-      ></Drink>,
-    ]);
-    console.log(drinkArr);
+    // setNumArr((prevArr) => prevArr.concat(numArr.length));
+    setDataArr((prevArr) =>
+      prevArr.concat({
+        ID: uuid(),
+        name: "myDrink" + dataArr.length,
+        address: "Drink address",
+        description: "Drink description",
+      })
+    );
+
+    // console.log(numArr);
+    console.log(dataArr);
   };
 
-  // const onClickAdd = () => {
-  //   setDrinkArr([...drinkArr, <h1 key={drinkArr.length}>hi</h1>]);
+  // for debugging
+  const printArr = () => {
+    // console.log(numArr);
+    console.log(dataArr);
+  };
+
+  // const delArr = () => {
+  //   setNumArr((prevArr) =>
+  //     prevArr.filter((_, index) => index !== numArr.length - 2)
+  //   );
   // };
-
-  // { id: 1, drink: drink, completed: false }
-
-  // const onClickAdd = () => {
-  //   const tmpArr = drinkArr.concat([
-  //     <Drink
-  //       key={drinkArr.length}
-  //       number={drinkArr.length}
-  //       onClick={() => eventDelete(drinkArr.length)}
-  //     ></Drink>,
-  //   ]);
-  //   console.log(drinkArr.length);
-  //   setDrinkArr(tmpArr);
-  // };
-
-  // <AddNew onClick={onClick}></AddNew>
 
   return (
     <div>
       <Title></Title>
       <NavBar></NavBar>
       <div className="grid-row">
-        {drinkArr}
+        {dataArr.map((item, index: number) => {
+          return (
+            <Drink
+              key={item.ID}
+              ID={item.ID}
+              navNum={index}
+              name={item.name}
+              address={item.address + item.ID}
+              eventDelete={() => eventDelete(item.ID)}
+            ></Drink>
+          );
+        })}
         <AddNew onClickAdd={onClickAdd}></AddNew>
       </div>
     </div>

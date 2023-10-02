@@ -12,7 +12,7 @@
 
   color: rgba(255, 255, 255, 0.87);
   background: rgb(255,137,79);
-  background: linear-gradient(90deg, rgb(255, 126, 61) 0%, rgba(255,188,120,1) 35%, rgba(255,162,0,1) 100%);
+  background: linear-gradient(90deg, rgb(255, 126, 61) 0%, rgb(255, 168, 80) 35%, rgb(255, 174, 0) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -288,7 +288,7 @@ h1 {
 }
 
 .tag {
-  background-color: rgb(230, 255, 210);
+  /* background-color: rgb(209, 59, 255); */
   border-radius: 10px;
   display: flex;
 
