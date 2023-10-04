@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import Tags from "./Tags";
 
@@ -6,14 +6,35 @@ import starSVG from "../assets/star-white.svg";
 import trashSVG from "../assets/trash.svg";
 import uploadSVG from "../assets/upload-photo.svg";
 import shareSVG from "../assets/share.svg";
+import saveSVG from "../assets/save.svg";
 
-function Drink({ ID, name, navNum, address, eventDelete }) {
+function Drink({
+  ID,
+  name,
+  navNum,
+  address,
+  description,
+  tags,
+  stars,
+  eventDelete,
+  eventSave,
+}) {
   // console.log("Rendered drink #" + number);
-  const [starArr, setStarArr] = useState([false, false, false, false, false]);
+  const [starArr, setStarArr] = useState(stars);
   const [isOptionsVisible, setOptionsVisible] = useState(false);
   const [file, setFile] = useState<string | undefined>(undefined);
+  const [tagArr, setTagArr] =
+    useState<{ tagName: string; c: string; tagID: number }[]>(tags);
+
+  useEffect(() => {
+    // console.log("useEffect: tagArr (Drink)");
+    // console.log(tagArr);
+  }, [tagArr]);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const addressRef = useRef<HTMLInputElement>(null);
+  const descRef = useRef<HTMLTextAreaElement>(null);
 
   const onClickStar = (index: number) => {
     const updatedArr = starArr.map((item, i) => {
@@ -64,6 +85,42 @@ function Drink({ ID, name, navNum, address, eventDelete }) {
     return valOutput;
   };
 
+  const handleBlur = () => {
+    // will never be called null, thus add ! operator
+    const nameVal = nameRef.current!.value;
+    const addressVal = addressRef.current!.value;
+    const descVal = descRef.current!.value;
+    console.log(nameVal + ", " + addressVal + ", " + descVal);
+    // save to App here
+  };
+
+  // update the tag arr from Tag to Drink
+  // may need to change names for readability
+  const updateTagArr = (
+    updatedTagArr: { tagName: string; c: string; tagID: number }[]
+  ) => {
+    console.log("Tags (batched state):");
+    console.log(updatedTagArr);
+
+    setTagArr(updatedTagArr);
+
+    console.log(tagArr);
+    // save to App here
+  };
+
+  const callEventSave = () => {
+    console.log("Drink called save! eventSave callback...");
+    console.log(tagArr);
+    eventSave({
+      ID: ID,
+      name: nameRef.current!.value,
+      address: addressRef.current!.value,
+      description: descRef.current!.value,
+      tags: tagArr,
+      stars: starArr,
+    });
+  };
+
   return (
     <div className="box drink-box">
       <div>
@@ -72,6 +129,12 @@ function Drink({ ID, name, navNum, address, eventDelete }) {
 
           {isOptionsVisible && (
             <div className="dB-options">
+              <img
+                src={saveSVG}
+                alt="Save"
+                className="icon"
+                onClick={callEventSave}
+              ></img>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -98,9 +161,15 @@ function Drink({ ID, name, navNum, address, eventDelete }) {
       </div>
 
       <div className="dB-content">
-        <Tags></Tags>
+        <Tags tags={tags} updateTagArr={updateTagArr}></Tags>
 
-        <input type="text" className="drink-name" defaultValue={name}></input>
+        <input
+          type="text"
+          className="drink-name"
+          defaultValue={name}
+          onBlur={handleBlur}
+          ref={nameRef}
+        ></input>
 
         {file && <img src={file} alt="Selected" className="drink-img" />}
 
@@ -108,11 +177,15 @@ function Drink({ ID, name, navNum, address, eventDelete }) {
           type="text"
           className="drink-addr"
           defaultValue={address}
+          onBlur={handleBlur}
+          ref={addressRef}
         ></input>
         <textarea
           // type="text"
           className="drink-desc"
-          defaultValue="Drink Description"
+          defaultValue={description}
+          onBlur={handleBlur}
+          ref={descRef}
         ></textarea>
 
         <div className="star-div">

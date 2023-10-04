@@ -101,7 +101,7 @@ h1 {
 }
 
 .nav-box {
-  
+  display: flex;
   position: absolute;
   top: 0;
   right: 0;
@@ -121,6 +121,37 @@ h1 {
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+.filter-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin:120px 173px 0px 0px;
+  padding: 10px;
+
+  z-index: 10;
+
+  /* color:white;
+  background-color: rgb(219, 82, 2);;
+
+  border-radius: 8px; */
+
+  background: rgba(255, 255, 255, 0.19);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-box p {
+  cursor: pointer;
+  user-select: none;
+  margin: 10px;
+  opacity: 1;
+}
+
 
 .box {
   margin:10px;
@@ -285,12 +316,15 @@ h1 {
 
 .tag-block {
   display: flex;
+  width: 200px;
+  flex-wrap: wrap;
 }
 
 .tag {
   /* background-color: rgb(209, 59, 255); */
-  border-radius: 10px;
   display: flex;
+
+  border-radius: 10px;
 
   font-size: 13px;
 
@@ -300,4 +334,39 @@ h1 {
   margin-left: 2px;
   margin-right: 2px;
   margin-bottom: 10px;
+
+  cursor: pointer;
+}
+
+
+.tag-popup {
+  margin-top: 5px;
+}
+
+.popup-content {
+  margin: auto;
+  
+  width: 50%;
+  padding: 5px;
+
+  background: rgba(255, 255, 255, 0.397);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.popup-arrow {
+  color: rgba(255, 255, 255, 0.603);
+}
+[role='tooltip'].popup-content {
+  width: 80px;
+  box-shadow: rgba(0, 0, 0, 0.349) 0px 0px 3px;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+[data-popup='tooltip'].popup-overlay {
+  background: transparent;
 }
