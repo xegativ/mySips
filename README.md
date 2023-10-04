@@ -1,4 +1,4 @@
 # mySips
-Record and store drinks from your favourite drinking locations.
+Record and store drinks from your favourite beverage locations.
 
 Run with `npm run dev`
