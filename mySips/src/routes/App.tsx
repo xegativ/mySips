@@ -1,8 +1,8 @@
-import "./App.css";
-import Drink from "./components/Drink";
-import AddNew from "./components/AddNew";
-import Title from "./components/Title";
-import NavBar from "./components/NavBar";
+import "../styles/App.css";
+import Drink from "../components/Drink";
+import AddNew from "../components/AddNew";
+import Title from "../components/Title";
+import NavBar from "../components/NavBar";
 
 import { useState, useEffect } from "react";
 import uuid from "react-uuid";
@@ -160,7 +160,7 @@ function App() {
   // };
 
   return (
-    <div>
+    <div className="app-wrap">
       <Title></Title>
       <NavBar onClickFilter={onClickFilter}></NavBar>
       <div className="grid-row">

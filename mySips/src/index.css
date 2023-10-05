@@ -1,31 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,300;12..96,400;12..96,500;12..96,600&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 
 :root {
   /* font-family: Helvetica, Arial,sans-serif; */
-  font-family: 'Bricolage Grotesque', sans-serif;
-
+  /* font-family: 'Bricolage Grotesque', sans-serif; */
+  font-family: 'Inter', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
-  background: rgb(255,137,79);
-  background: linear-gradient(90deg, rgb(255, 126, 61) 0%, rgb(255, 168, 80) 35%, rgb(255, 174, 0) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  padding: 0;
+  margin: 0;
 }
 
 body {
-  margin: 0;
   padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+
+.app-wrap {
+  color: rgba(255, 255, 255, 0.87);
+  background: rgb(255,137,79);
+  background: linear-gradient(90deg, rgb(255, 126, 61) 0%, rgb(255, 168, 80) 35%, rgb(255, 174, 0) 100%);
+
   display: flex;
+  align-items: center;
+  justify-content: center;
   place-items: center;
+
+  margin: auto;
+  padding: 0;
+  
   min-height: 100vh;
 }
 
@@ -40,7 +55,7 @@ h1 {
 
 .drink-name {
   font-size: 32px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
 
   width: 200px;
@@ -53,7 +68,7 @@ h1 {
 
 .drink-desc {
   font-size: 15px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
 
   width: 200px;
@@ -68,7 +83,7 @@ h1 {
 
 .drink-addr {
   font-size: 15px;
-  font-family: 'Bricolage Grotesque', sans-serif;
+  /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
 
   width: 200px;
@@ -231,7 +246,7 @@ h1 {
   justify-content: center;
   align-items: center;
 
-  padding-top: 100px;
+  /* padding-top: 100px; */
 
   /* margin-top: 100px; */
 }
@@ -242,6 +257,8 @@ h1 {
     max-width: 40vw; 
   }
 } 
+
+
 
 
 /* Apply margin to .content only when the screen width is 600px or less (adjust as needed) */
@@ -369,4 +386,137 @@ h1 {
 }
 [data-popup='tooltip'].popup-overlay {
   background: transparent;
+}
+
+
+.homeNav-wrap {
+}
+
+.nav-top {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #ffffff;
+
+
+    overflow: hidden;
+}
+
+#logo {
+}
+
+.nav-top ul {
+    list-style-type: none;
+    display: inline-block;
+
+    margin: auto;
+    padding: 0;
+    
+  }
+  
+.nav-top li {
+    float: left;
+}
+
+.nav-top li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+   
+
+.section-hero
+{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  position:relative;
+
+  padding-top: 144px;
+  width: 100%;
+
+}
+
+.section-header-center
+{
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  display:flex;
+  flex-direction: column;
+}
+
+.section-header-title
+{
+  max-width: max-content;
+
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+
+  display: block;
+  font-size: 60px;
+  font-weight: bold;
+
+  line-height: 70px;
+  letter-spacing: -2px;
+}
+
+.section-header-title span
+{
+  color: #000534;
+  display: block;
+}
+
+.section-subheader {
+  margin-top: 20px;
+  width: 500px;
+}
+
+
+
+.hero-button {
+
+  color: white;
+  background-color: orange;
+
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+
+  border-radius: 5px;
+
+  padding: 10px;
+  margin: 5px;
+}
+
+.gradient-orange-red {
+  font-size: 72px;
+  background: -webkit-linear-gradient(#ffa908, #ff5926);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-helper-text-welcome {
+  
+  font-family: 'Space Grotesk', sans-serif;
+  color: orange;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.hero-helper-text-summary {
+  opacity: 0.6;
+  font-weight: 600;
+  font-size: 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  color: #000534;
+}
+
+.button-wrap {
+  margin-top: 40px;
 }
