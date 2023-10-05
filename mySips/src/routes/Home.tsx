@@ -6,7 +6,7 @@ import HomeNav from "../components/HomeNav";
 
 function Home() {
   return (
-    <>
+    <div className="home-wrap">
       <div className="homeNav-wrap">
         <HomeNav></HomeNav>
       </div>
@@ -32,14 +32,14 @@ function Home() {
                   Sign up
                 </NavLink>
                 <NavLink className="hero-button" to={"app"}>
-                  Try now
+                  Try out
                 </NavLink>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
 

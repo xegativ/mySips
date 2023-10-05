@@ -11,7 +11,12 @@ const HomeNav = () => {
           <a href="#about">About</a>
         </li>
         <li>
-          <a href="#app">Sign in</a>
+          <a href="#app">Log in</a>
+        </li>
+        <li>
+          <a href="#app" className="nav-try">
+            Try out
+          </a>
         </li>
       </ul>
     </div>

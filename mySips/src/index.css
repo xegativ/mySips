@@ -388,6 +388,8 @@ h1 {
   background: transparent;
 }
 
+.home-wrap {
+}
 
 .homeNav-wrap {
 }
@@ -421,10 +423,19 @@ h1 {
 
 .nav-top li a {
     display: block;
-    color: black;
+
+    color: #000534;
+
     text-align: center;
-    padding: 16px;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+
+    padding: 16px;
+
+}
+
+.nav-try {
 }
    
 
@@ -482,7 +493,7 @@ h1 {
 .hero-button {
 
   color: white;
-  background-color: orange;
+  background-color: rgb(255, 145, 0);
 
   text-decoration: none;
   font-size: 18px;
@@ -504,9 +515,10 @@ h1 {
 .hero-helper-text-welcome {
   
   font-family: 'Space Grotesk', sans-serif;
-  color: orange;
+  color: rgb(255, 145, 0);
   font-weight: 800;
   font-size: 25px;
+  margin: 10px;
 }
 
 .hero-helper-text-summary {
