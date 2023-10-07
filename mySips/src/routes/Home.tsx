@@ -1,10 +1,20 @@
 // import { NavLink, Routes, Route } from "react-router-dom";
-import React from "react";
+// import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import HomeNav from "../components/HomeNav";
 
 function Home() {
+  // useEffect(() => {
+  //   // Applying on mount
+  //   document.body.style.overflow = "hidden";
+  //   // Applying on unmount
+  //   return () => {
+  //     document.body.style.overflow = "visible";
+  //   };
+  // }, []);
+
   return (
     <div className="home-wrap">
       <div className="homeNav-wrap">
@@ -25,20 +35,27 @@ function Home() {
             <div className="section-subheader">
               <p className="hero-helper-text-summary">
                 mySips is your way to store all your favorite drinks in one
-                place! Making going out effortless.
+                place! Making going out{" "}
+                <b className="td-underline">effortless.</b>
               </p>
+
               <div className="button-wrap">
-                <NavLink className="hero-button" to={"app"}>
-                  Sign up
-                </NavLink>
-                <NavLink className="hero-button" to={"app"}>
-                  Try out
-                </NavLink>
+                <motion.div whileHover={{ scale: 1.1, rotate: 2 }}>
+                  <NavLink className="hero-button-line" to={"app"}>
+                    Sign up
+                  </NavLink>
+
+                  <NavLink className="hero-button" to={"app"}>
+                    Try out ➤
+                  </NavLink>
+                </motion.div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* <img className="bg-bottom" src={bgSVG}></img> */}
     </div>
   );
 }

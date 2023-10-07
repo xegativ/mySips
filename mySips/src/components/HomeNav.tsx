@@ -1,20 +1,24 @@
-import React from "react";
-
 const HomeNav = () => {
   return (
     <div className="nav-top">
       <ul>
         <li>
-          <a href="#home">Home</a>
+          <a href="#home" className="td-none">
+            Home
+          </a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#about" className="td-none">
+            About
+          </a>
         </li>
         <li>
-          <a href="#app">Log in</a>
+          <a href="#app" className="td-none">
+            Log in
+          </a>
         </li>
         <li>
-          <a href="#app" className="nav-try">
+          <a href="#app" className="nav-try td-underline">
             Try out
           </a>
         </li>

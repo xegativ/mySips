@@ -24,7 +24,6 @@
 body {
   padding: 0;
   margin: 0;
-  overflow: hidden;
 }
 
 
@@ -54,6 +53,7 @@ h1 {
 }
 
 .drink-name {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 32px;
   /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
@@ -67,6 +67,7 @@ h1 {
 }
 
 .drink-desc {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
@@ -82,6 +83,7 @@ h1 {
 }
 
 .drink-addr {
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 15px;
   /* font-family: 'Bricolage Grotesque', sans-serif; */
   font-weight: 600;
@@ -389,9 +391,18 @@ h1 {
 }
 
 .home-wrap {
+  
 }
 
-.homeNav-wrap {
+.homeNav-wrap { 
+}
+
+.td-underline {
+  text-decoration: underline;
+}
+
+.td-none {
+  text-decoration: none;
 }
 
 .nav-top {
@@ -407,6 +418,8 @@ h1 {
 
 #logo {
 }
+
+
 
 .nav-top ul {
     list-style-type: none;
@@ -424,18 +437,22 @@ h1 {
 .nav-top li a {
     display: block;
 
-    color: #000534;
+    color: #00074b;
 
     text-align: center;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
 
-    padding: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+
+    margin: 16px;
+    margin-left: 25px;
+    margin-right: 25px;
 
 }
 
 .nav-try {
+  
 }
    
 
@@ -447,7 +464,7 @@ h1 {
 
   position:relative;
 
-  padding-top: 144px;
+  padding-top: 20vh;
   width: 100%;
 
 }
@@ -479,7 +496,7 @@ h1 {
 
 .section-header-title span
 {
-  color: #000534;
+  color: #00074b;
   display: block;
 }
 
@@ -489,25 +506,58 @@ h1 {
 }
 
 
-
 .hero-button {
 
   color: white;
-  background-color: rgb(255, 145, 0);
+  background-color: #FF900D;
 
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
 
+
+  border: 2px solid #FF900D;
   border-radius: 5px;
+
+  padding: 10px 15px 10px 15px;
+  margin: 5px;
+
+  overflow: hidden;
+}
+
+.hero-button:hover {
+  background-color: #ffaa48;
+  border: 2px solid #ffaa48;
+}
+
+
+.hero-button-line {
+  box-sizing: border-box;
+
+  color: #FF900D;
+  background-color: white;
+
+  border: 2px solid #FF900D;
+  border-radius: 6px;
+
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 600;
 
   padding: 10px;
   margin: 5px;
 }
 
+.hero-button-line:hover {
+  color: #ffaa48;
+  border: 2px solid #ffaa48;
+}
+
+
 .gradient-orange-red {
   font-size: 72px;
-  background: -webkit-linear-gradient(#ffa908, #ff5926);
+  background: -webkit-linear-gradient(#FF900D, #ff6739);
+  /* background: #FF900D; */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -515,7 +565,7 @@ h1 {
 .hero-helper-text-welcome {
   
   font-family: 'Space Grotesk', sans-serif;
-  color: rgb(255, 145, 0);
+  color: #FF900D;
   font-weight: 800;
   font-size: 25px;
   margin: 10px;
@@ -526,9 +576,23 @@ h1 {
   font-weight: 600;
   font-size: 20px;
   font-family: 'Space Grotesk', sans-serif;
-  color: #000534;
+  color: #00074b;
 }
 
 .button-wrap {
-  margin-top: 40px;
+  display: block;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+
+  width: 230px;
+}
+
+.arrow {
+  filter: invert(100%) sepia(8%) saturate(7500%) hue-rotate(160deg) brightness(119%) contrast(94%);
+
+  margin: 0;
+  padding: 0;
+  
 }
