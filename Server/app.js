@@ -59,36 +59,7 @@ app.post('/adduser', (req, res) => {
 })
 
 
-// add user -> post 
-// /adduser?username=myUsername&password=myHashedPassword
-app.post('/getuser', (req, res) => {
 
-    // assume password already hashed for now
-    const { username, password } = req.query;
-
-    // user_id
-    const user_id = uuidv4();
-
-    // if no username or password
-    if (!username || !password) {
-        res.status(400).json({ error: 'Username and password are required.' });
-        return;
-    }
-
-    const sql = 'INSERT INTO users SET ?';
-    const post = { user_id: user_id, username: username, password: password, userdata: null };
-
-    // post to db
-    db.query(sql, post, (err, result) => {
-        if (err) {
-            throw err;
-        } else {
-            console.log(result);
-            res.send('User created...');
-        }
-    });
-
-})
 
 // retrieve user by id 
 app.get('/getuser/:user_id', (req, res) => {
