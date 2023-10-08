@@ -4,10 +4,7 @@ const mysql = require('mysql');
 // create connection
 // - takes in configuration object; check documentation for param
 const db = mysql.createConnection({
-    host : 'localhost',
-    user : 'mySips-local',
-    password : 'G010h(stY*]FlRB4',
-    database : 'mysips-local'
+    //empty for now
 
 });
 
