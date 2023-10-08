@@ -1,26 +1,28 @@
+import { NavLink } from "react-router-dom";
+
 const HomeNav = () => {
   return (
     <div className="nav-top">
       <ul>
         <li>
-          <a href="#home" className="td-none">
+          <NavLink className="td-none" to={"/"}>
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="#about" className="td-none">
-            About
-          </a>
+          <NavLink className="td-none" to={"/register"}>
+            Register
+          </NavLink>
         </li>
         <li>
-          <a href="#app" className="td-none">
-            Log in
-          </a>
+          <NavLink className="td-none" to={"/login"}>
+            Login
+          </NavLink>
         </li>
         <li>
-          <a href="#app" className="nav-try td-underline">
+          <NavLink className="nav-try td-underline" to={"/app"}>
             Try out
-          </a>
+          </NavLink>
         </li>
       </ul>
     </div>
