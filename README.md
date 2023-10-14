@@ -1,7 +1,7 @@
 # mySips
 Website application that records and stores drinks from your favourite beverage locations.
 
-TDOO: 
+TODO: 
 - Connect backend and database to frontend
 
 ![Scene 1](https://github.com/xegativ/mySips/assets/52055203/8ce04672-f5fc-4c10-9f67-85481020869e)
