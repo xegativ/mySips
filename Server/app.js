@@ -1,76 +1,83 @@
-const express = require('express');
-const mysql = require('mysql');
-const { v4: uuidv4 } = require('uuid');
+var createError = require('http-errors');
+var passport = require('passport');
+var session = require('express-session');
+var express = require('express');
+var authRouter = require('./routes/auth');
+var path = require('path');
+var dotenv = require('dotenv');
+dotenv.config();
 
-// create connection
-// - takes in configuration object; check documentation for param
-const db = mysql.createConnection({
-    //empty for now
-    // will include either .env variables or AWS
-
-});
-
-db.connect((err) => {
-    if(err){
-        throw err;
-    }
-    else {
-        console.log("MySQL connected.")
-    }
-})
-
+const mysqlStore = require('express-mysql-session')(session);
 
 // setup express server
-const app = express();
+var app = express();
 app.listen('3000', () => {
     console.log("Server starting on port 3000");
 });
 
+// define template (view engine)
+// setting the view engine to ejs
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs')
 
-// add user -> post 
-// /adduser?username=myUsername&password=myHashedPassword
-app.post('/adduser', (req, res) => {
+// parsing body json
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-    // assume password already hashed for now
-    const { username, password } = req.query;
+// init passport
+app.use(passport.initialize());
 
-    // user_id
-    const user_id = uuidv4();
+// serves all files within public to be accessible via URL
+const options ={
+    connectionLimit: 10,
+    createDatabaseTable: true,
 
-    // if no username or password
-    if (!username || !password) {
-        res.status(400).json({ error: 'Username and password are required.' });
-        return;
-    }
+    host: process.env.HOST,
+    user: process.env.USER,
+    password: process.env.PASSWORD,
+    port: process.env.DB_PORT,
+    database : process.env.DB 
+}
 
-    const sql = 'INSERT INTO users SET ?';
-    const post = { user_id: user_id, username: username, password: password, userdata: null };
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({
+  secret: 'temp-sess',
+  resave: false,
+  saveUninitialized: false,
+  store: new mysqlStore(options),
+//   store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+}));
+// uses the strategy defined in auth.js
+app.use(passport.authenticate('session'));
 
-    // post to db
-    db.query(sql, post, (err, result) => {
-        if (err) {
-            throw err;
-        } else {
-            console.log(result);
-            res.send('User created...');
-        }
-    });
-
-})
+// must occur after other middleware init
+// setup middleware 
+// runs everytime regardless of URL 
+app.use('/', authRouter)
 
 
+// error handling and extra
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+    next(createError(404));
+  });
+  
+  // error handler
+  app.use(function(err, req, res, next) {
+    // set locals, only providing error in development
+    res.locals.message = err.message;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+    // render the error page
+    res.status(err.status || 500);
+    res.render('error');
+  });
+
+module.exports = app;
 
 
-// retrieve user by id 
-app.get('/getuser/:user_id', (req, res) => {
-    let sql = 'SELECT * FROM  users WHERE user_id = ${req.params.user_id}';
-    let query = db.query(sql, (err, result) => {
-        if(err){
-            throw err;
-        }
-        else {
-            console.log(result);
-            res.send('User fetched...')
-        }
-    })
-})
+
+
+
