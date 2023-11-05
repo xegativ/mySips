@@ -6,7 +6,7 @@ function Login() {
                 <NavLink id="login-back" to={"/"}>
                     Back
                 </NavLink>
-                <h1>mySips Login</h1>
+                <h1>Login</h1>
                 <form>
                     <br></br>
                     <label>Username</label>

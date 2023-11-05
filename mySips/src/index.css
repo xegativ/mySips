@@ -455,7 +455,7 @@ h1 {
 
     position: relative;
 
-    padding-top: 20vh;
+    padding-top: 18vh;
     width: 100%;
 }
 
@@ -633,6 +633,8 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.585);
 
     padding: 5px;
+
+    font-family: "Space Grotesk", sans-serif;
 }
 
 #form-submit {
