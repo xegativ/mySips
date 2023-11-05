@@ -1,7 +1,8 @@
 // import { NavLink, Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
+
+import heroSVG from "../assets/section-hero-bg.png";
 
 import HomeNav from "../components/HomeNav";
 
@@ -15,8 +16,17 @@ function Home() {
     //     };
     // }, []);
 
+    const divStyle = {
+        backgroundImage: `url(${heroSVG})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center top",
+        width: "100%",
+        height: "120vh",
+    };
+
     return (
-        <div className="home-wrap">
+        <div className="home-wrap" style={divStyle}>
             <div className="homeNav-wrap">
                 <HomeNav></HomeNav>
             </div>
@@ -49,7 +59,7 @@ function Home() {
                                 >
                                     <NavLink
                                         className="hero-button-line"
-                                        to={"app"}
+                                        to={"register"}
                                     >
                                         Sign up
                                     </NavLink>

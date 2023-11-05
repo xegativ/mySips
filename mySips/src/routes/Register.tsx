@@ -6,7 +6,7 @@ function Register() {
                 <NavLink id="login-back" to={"/"}>
                     Back
                 </NavLink>
-                <h1>Sign up</h1>
+                <h1>Register</h1>
                 <form>
                     <br></br>
                     <label>Username</label>

@@ -393,7 +393,36 @@ h1 {
 .home-wrap {
 }
 
+#homenav-logo {
+    color: #00074b;
+
+    text-align: center;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+}
+
+#homenav-outline {
+    color: #00074b;
+
+    text-align: center;
+
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+
+    text-decoration: none;
+    border: 2px solid #00074b;
+
+    border-radius: 6px;
+    padding: 5px 10px 5px 10px;
+}
+
 .homeNav-wrap {
+    padding-top: 15px;
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .td-underline {
@@ -409,7 +438,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
 
-    background-color: #ffffff;
+    background-color: #ffffff00;
 
     overflow: hidden;
 }
@@ -438,7 +467,7 @@ h1 {
 
     font-family: "Space Grotesk", sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
 
     margin: 16px;
     margin-left: 25px;
