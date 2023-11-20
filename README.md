@@ -4,6 +4,9 @@ Website application that records and stores drinks from your favourite beverage 
 TODO: 
 - Connect backend and database to frontend
 
+Try out the static version here:
+https://mysips-static.netlify.app/
+
 Run with `npm run dev` in `mySips`
 
 ![mysipstitle-orange](https://github.com/xegativ/mySips/assets/52055203/eb64ef56-bd1b-4a0a-a699-60f264e18fe5)
