@@ -1,8 +1,14 @@
 # mySips
 Website application that records and stores drinks from your favourite beverage locations.
 
+FEATURES:
+- User system
+- Drink management
+
 TODO: 
-- Connect backend and database to frontend
+- Create Sign Out button
+- Data Import
+- Data Save
 
 Try out the static version here:
 https://mysips-static.netlify.app/
