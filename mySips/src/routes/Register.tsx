@@ -23,6 +23,7 @@ function Register() {
 
             if (response.ok) {
                 console.log("Successfully Registered");
+                setStatus("Account Registered.");
             } else {
                 const errorResponse = await response.text();
                 console.error("Login Failed: ", errorResponse);
