@@ -10,7 +10,8 @@ function Register() {
         e.preventDefault();
 
         try {
-            const response = await fetch("/signup-page", {
+            const response = await fetch("http://localhost:3000/signup-page", {
+                mode: "no-cors",
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -21,8 +22,9 @@ function Register() {
             if (response.ok) {
                 console.log("Successfully Registered");
             } else {
-                console.error("Register Failed");
-                setStatus("Register Failed.");
+                const errorResponse = await response.text();
+                console.error("Login Failed: ", errorResponse);
+                setStatus(`Register Failed: ${username} , ${password}`);
             }
         } catch (error) {
             console.log("Error during login:", error);
@@ -38,13 +40,21 @@ function Register() {
                     <br></br>
                     <label>Username</label>
                     <input
+                        id="username"
+                        name="username"
                         placeholder="Username"
+                        type="text"
+                        required
                         onChange={(e) => setUsername(e.target.value)}
                     ></input>
                     <br></br>
                     <label>Password</label>
                     <input
+                        id="password"
+                        name="password"
                         placeholder="Password"
+                        type="password"
+                        required
                         onChange={(e) => setPassword(e.target.value)}
                     ></input>
                     <br></br>

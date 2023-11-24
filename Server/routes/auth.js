@@ -2,6 +2,7 @@ var express = require("express");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var crypto = require("crypto");
+var cors = require("cors");
 var db = require("../db");
 
 var { v4: uuidv4 } = require("uuid");
@@ -89,6 +90,8 @@ passport.deserializeUser(function (user, cb) {
 
 var router = express.Router();
 
+router.use(cors());
+
 router.get("/login-page", (req, res, next) => {
     if (req.user) {
         res.redirect("/main");
@@ -135,9 +138,9 @@ router.post("/logout-page", (req, res, next) => {
     });
 });
 
-router.get("/signup-page", function (req, res, next) {
-    res.render("register");
-});
+// router.get("/signup-page", function (req, res, next) {
+//     res.render("register");
+// });
 
 router.get("/main", (req, res, next) => {
     res.render("main");
@@ -197,7 +200,7 @@ router.post("/signup-page", function (req, res, next) {
                         if (err) {
                             return next(err);
                         }
-                        res.redirect("/main");
+                        // res.redirect("/main");
                     });
                 }
             });

@@ -10,18 +10,22 @@ function Login() {
         e.preventDefault();
 
         try {
-            const response = await fetch("/login-page/submit", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
-            });
+            const response = await fetch(
+                "http://localhost:3000/login-page/submit",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, password }),
+                }
+            );
 
             if (response.ok) {
                 console.log("Successfully Logged In");
             } else {
-                console.error("Login Failed");
+                const errorResponse = await response.json();
+                console.error("Login Failed: ", errorResponse);
                 setStatus("Login Failed.");
             }
         } catch (error) {
@@ -38,15 +42,21 @@ function Login() {
                     <br></br>
                     <label>Username</label>
                     <input
+                        id="username"
+                        name="username"
                         placeholder="Username"
                         onChange={(e) => setUsername(e.target.value)}
+                        required
                     ></input>
                     <br></br>
                     <label>Password</label>
                     <input
+                        id="password"
+                        name="password"
                         type="password"
                         placeholder="Password"
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     ></input>
                     <br></br>
                     <button id="form-submit">Login</button>
