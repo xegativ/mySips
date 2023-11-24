@@ -90,8 +90,6 @@ passport.deserializeUser(function (user, cb) {
 
 var router = express.Router();
 
-router.use(cors());
-
 router.get("/login-page", (req, res, next) => {
     if (req.user) {
         res.redirect("/main");
@@ -118,7 +116,10 @@ router.post("/login-page/submit", (req, res, next) => {
                     .json({ success: false, message: info.message });
 
             req.login(user, (err) => {
-                if (err) return next(err);
+                if (err) {
+                    return next(err);
+                }
+                res.redirect("/main");
                 return res.status(200).json({ success: true, user });
             });
         })(req, res, next);
@@ -138,15 +139,15 @@ router.post("/logout-page", (req, res, next) => {
     });
 });
 
-// router.get("/signup-page", function (req, res, next) {
-//     res.render("register");
-// });
+router.get("/signup-page", function (req, res, next) {
+    res.render("register");
+});
 
 router.get("/main", (req, res, next) => {
     res.render("main");
 });
 
-router.post("/signup-page", function (req, res, next) {
+router.post("/signup-page/submit", function (req, res, next) {
     var salt = crypto.randomBytes(16);
 
     crypto.pbkdf2(
@@ -200,7 +201,7 @@ router.post("/signup-page", function (req, res, next) {
                         if (err) {
                             return next(err);
                         }
-                        // res.redirect("/main");
+                        res.redirect("/main");
                     });
                 }
             });

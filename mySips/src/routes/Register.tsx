@@ -10,14 +10,16 @@ function Register() {
         e.preventDefault();
 
         try {
-            const response = await fetch("http://localhost:3000/signup-page", {
-                mode: "no-cors",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password }),
-            });
+            const response = await fetch(
+                "http://localhost:3000/signup-page/submit",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ username, password }),
+                }
+            );
 
             if (response.ok) {
                 console.log("Successfully Registered");

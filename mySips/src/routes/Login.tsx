@@ -23,8 +23,9 @@ function Login() {
 
             if (response.ok) {
                 console.log("Successfully Logged In");
+                setStatus("Logged In.");
             } else {
-                const errorResponse = await response.json();
+                const errorResponse = await response.text();
                 console.error("Login Failed: ", errorResponse);
                 setStatus("Login Failed.");
             }
