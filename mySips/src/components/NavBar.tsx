@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface NavBarProps {
     onClickFilter: (dataTagBoolUpdate: boolean[]) => void;
@@ -26,6 +26,43 @@ function NavBar({ onClickFilter }: NavBarProps) {
         { tagName: "Cold", c: "orange", tagID: 4 },
         { tagName: "Pearls", c: "orange", tagID: 5 },
     ];
+
+    // Handle check for user logged in
+    // no el triggering this check
+    const [loggedIn, setLoggedIn] = useState<boolean | null>(null);
+
+    useEffect(() => {
+        const isLoggedIn = async (): Promise<void> => {
+            try {
+                const response = await fetch(
+                    "http://localhost:3000/is-logged-in",
+                    {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                    }
+                );
+
+                if (response.ok) {
+                    console.log("User Logged In");
+
+                    setLoggedIn(await response.json());
+                } else {
+                    const errorResponse = await response.text();
+                    console.error("User Login Failed: ", errorResponse);
+
+                    setLoggedIn(false);
+                }
+            } catch (error) {
+                console.log("Error during checking if user logged in:", error);
+
+                setLoggedIn(false);
+            }
+        };
+
+        isLoggedIn();
+    }, []);
 
     const openMenu = () => {
         if (isFilterVisible) {
@@ -60,7 +97,7 @@ function NavBar({ onClickFilter }: NavBarProps) {
             <div className="nav-box">
                 <p onClick={openMenu}>Filter</p>
                 <p>Save</p>
-                <p>Log out</p>
+                {loggedIn ? <p>Logout</p> : <p>Login</p>}
             </div>
             {isFilterVisible && (
                 <div className="filter-box">
