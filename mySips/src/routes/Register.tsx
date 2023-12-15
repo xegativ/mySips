@@ -6,7 +6,9 @@ function Register() {
     const [password, setPassword] = useState("");
     const [status, setStatus] = useState("");
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (
+        e: React.FormEvent<HTMLFormElement>
+    ): Promise<void> => {
         e.preventDefault();
 
         try {
@@ -39,7 +41,7 @@ function Register() {
             <div id="form-wrap">
                 <NavLink to={"/"}>Back</NavLink>
                 <h1>Register</h1>
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={(e) => handleSubmit(e)}>
                     <br></br>
                     <label>Username</label>
                     <input
