@@ -98,6 +98,14 @@ router.get("/login-page", (req, res, next) => {
     }
 });
 
+router.get("/is-logged-in", (req, res, next) => {
+    if (req.user) {
+        return res.status(200).json({ success: true, true: boolean });
+    } else {
+        return res.status(201).json({ success: true, false: boolean });
+    }
+});
+
 // router.post(
 //     "/login-page/submit",
 //     passport.authenticate("local", {

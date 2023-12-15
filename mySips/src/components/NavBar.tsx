@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-function NavBar({ onClickFilter }) {
+interface NavBarProps {
+    onClickFilter: (dataTagBoolUpdate: boolean[]) => void;
+}
+
+function NavBar({ onClickFilter }: NavBarProps) {
     const [isFilterVisible, setFilterVisible] = useState(false);
     // const [dataTagBool, setDataTagBool] = useState<
     //   { tagName: string; c: string; tagID: number }[]

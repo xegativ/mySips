@@ -50,7 +50,7 @@ function App() {
     // ]);
 
     // deleting Drinks callback func
-    const eventDelete = (drinkID) => {
+    const eventDelete = (drinkID: string) => {
         console.log("Delete called on ID " + drinkID);
         console.log("dataArr.length: " + dataArr.length);
         // const removeNumArr = [...numArr].filter((_, index) => index !== ID);
